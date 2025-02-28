@@ -91,6 +91,10 @@ body {
   background-color: var(--switch-off-color);
   border-radius: 34px;
   transition: 0.1s;
+}
+.switch,
+.switch input,
+.switch .slider {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
