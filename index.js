@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     size: 150,
     speed: 1,
     animated: true,
-    strokeWidth: 8,
+    strokeWidth: 9,
     progressColor: "var(--primary-color)",
     ringColor: "var(--secondary-color)",
   });
@@ -18,16 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Управление значением
   valueInput.addEventListener("input", () => {
-    valueInput.value = valueInput.value.replace(/[^0-9]/g, ""); // Оставляем только цифры
-
+    valueInput.value = valueInput.value.replace(/[^0-9]/g, "");
     const value = valueInput.value.trim();
-    progress.setValue(value === "" ? 0 : Math.min(100, parseInt(value, 10)));
+
+    const numericValue = value === "" ? 0 : Math.min(100, parseInt(value, 10));
+    progress.setValue(numericValue);
+    valueInput.value = numericValue;
   });
 
-  // Запрет ввода букв и знаков (кроме цифр)
+  // Запрет ввода букв и знаков
   valueInput.addEventListener("keypress", (event) => {
     if (!/[0-9]/.test(event.key)) {
-      event.preventDefault(); // Блокируем ввод
+      event.preventDefault();
     }
   });
 

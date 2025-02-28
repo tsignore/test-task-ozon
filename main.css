@@ -1,6 +1,7 @@
 :root {
   --primary-color: #005cff;
   --secondary-color: #eaf0f6;
+  --switch-off-color: #dae6ec;
 }
 
 * {
@@ -15,7 +16,8 @@ body {
   justify-content: center;
   min-height: 100vh;
   font-family: system-ui, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 18px;
   padding: 20px;
 }
 
@@ -38,14 +40,17 @@ body {
 }
 
 .value-input {
-  width: 50px;
+  width: 45px;
   height: 28px;
+  line-height: 28px; /* Центрируем текст по вертикали */
   border-radius: 34px;
   border: 1px solid black;
-  appearance: none;
+  font-size: 16px;
   text-align: center;
+  appearance: none;
   outline: none;
   max-width: 100%;
+  font-weight: 500;
 }
 
 .value-input:focus {
@@ -62,8 +67,12 @@ body {
 .switch {
   position: relative;
   display: flex;
-  width: 50px;
+  width: 45px;
   height: 28px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .switch input {
@@ -79,7 +88,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--secondary-color);
+  background-color: var(--switch-off-color);
   border-radius: 34px;
   transition: 0.1s;
 }
@@ -87,10 +96,10 @@ body {
 .slider:before {
   content: "";
   position: absolute;
-  height: 22px;
-  width: 22px;
-  left: 3px;
-  bottom: 3px;
+  height: 24px;
+  width: 24px;
+  left: 2px;
+  bottom: 2px;
   background-color: white;
   border-radius: 50%;
   transition: 0.1s;
@@ -101,7 +110,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(22px);
+  transform: translateX(17px);
 }
 
 /* Адаптив */
@@ -112,7 +121,7 @@ input:checked + .slider:before {
   }
 
   .progress-container {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     margin-right: 0;
   }
 }
