@@ -69,10 +69,6 @@ body {
   display: flex;
   width: 45px;
   height: 28px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .switch input {
@@ -97,6 +93,8 @@ body {
 .switch .slider {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .slider:before {
