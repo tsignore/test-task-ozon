@@ -92,6 +92,7 @@ body {
   border-radius: 34px;
   transition: 0.1s;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .slider:before {
