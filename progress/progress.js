@@ -9,6 +9,7 @@ export class Progress {
     animated = false,
     hidden = false,
     speed = 1,
+    className = "",
   }) {
     this.container = document.querySelector(container);
     this.value = value;
@@ -21,6 +22,7 @@ export class Progress {
     this.progressColor = progressColor;
     this.ringColor = ringColor;
     this.circumference = Math.ceil(2 * Math.PI * this.radius);
+    this.className = className;
     this.init();
     this.setValue(value);
   }
@@ -32,7 +34,9 @@ export class Progress {
       this.size
     }" viewBox="${-padding} ${-padding} ${100 + 2 * padding} ${
       100 + 2 * padding
-    }" ${`style="animation-duration: ${this.speed}s"`}>
+    }" ${`style="animation-duration: ${this.speed}s"`} class="${
+      this.className
+    }">
     <circle class="progress-ring" cx="50" cy="50"
       r="${this.radius}" stroke-width="${this.strokeWidth}" stroke="${
       this.ringColor

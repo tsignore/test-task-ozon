@@ -1,4 +1,4 @@
-# Тестовое задание для Авито
+# Тестовое задание для Озон
 
 Блок Progress
 
@@ -43,6 +43,7 @@ const progress = new Progress({
 | `animated`      | `boolean` | `false`      | Включить анимацию                    |
 | `hidden`        | `boolean` | `false`      | Скрыть прогресс-бар                  |
 | `speed`         | `number`  | `1`          | Скорость анимации                    |
+| `className`     | `string`  | ``           | Стили задаваемые извне               |
 
 ### API (Методы класса):
 
