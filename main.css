@@ -1,0 +1,118 @@
+:root {
+  --primary-color: #005cff;
+  --secondary-color: #eaf0f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.progress-container {
+  margin-right: 50px;
+  max-width: 100%;
+}
+
+/* controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.value-input {
+  width: 50px;
+  height: 28px;
+  border-radius: 34px;
+  border: 1px solid black;
+  appearance: none;
+  text-align: center;
+  outline: none;
+  max-width: 100%;
+}
+
+.value-input:focus {
+  border-color: var(--primary-color);
+}
+
+.value-input::-webkit-outer-spin-button,
+.value-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* switch */
+.switch {
+  position: relative;
+  display: flex;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondary-color);
+  border-radius: 34px;
+  transition: 0.1s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.1s;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* Адаптив */
+@media (max-width: 500px) {
+  body {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .progress-container {
+    margin-bottom: 50px;
+    margin-right: 0;
+  }
+}
