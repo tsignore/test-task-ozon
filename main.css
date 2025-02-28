@@ -91,6 +91,7 @@ body {
   background-color: var(--switch-off-color);
   border-radius: 34px;
   transition: 0.1s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .slider:before {
