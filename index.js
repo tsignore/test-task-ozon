@@ -16,30 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const animateToggle = document.getElementById("animateToggle");
   const hideToggle = document.getElementById("hideToggle");
 
-  // Управление значением
-  valueInput.addEventListener("input", () => {
-    valueInput.value = valueInput.value.replace(/[^0-9]/g, "");
-    const value = valueInput.value.trim();
+  if (valueInput) valueInput.addEventListener("input", handleValueChange);
+  if (valueInput) valueInput.addEventListener("keypress", handleValueKeyPress);
+  if (animateToggle) animateToggle.addEventListener("change", handleAnimationToggle);
+  if (hideToggle) hideToggle.addEventListener("change", handleVisibilityToggle);
 
-    const numericValue = value === "" ? 0 : Math.min(100, parseInt(value, 10));
-    progress.setValue(numericValue);
+  function handleValueChange() {
+    const numericValue = Math.min(100, parseInt(valueInput.value.replace(/[^0-9]/g, ""), 10) || 0);
     valueInput.value = numericValue;
-  });
+    progress.setValue(numericValue);
+  }
 
-  // Запрет ввода букв и знаков
-  valueInput.addEventListener("keypress", (event) => {
-    if (!/[0-9]/.test(event.key)) {
+  function handleValueKeyPress(event) {
+    if (!/\d/.test(event.key)) {
       event.preventDefault();
     }
-  });
+  }
 
-  // Управление анимацией
-  animateToggle.addEventListener("change", () => {
+  function handleAnimationToggle() {
     progress.setAnimated(animateToggle.checked);
-  });
+  }
 
-  // Управление видимостью
-  hideToggle.addEventListener("change", () => {
+  function handleVisibilityToggle() {
     progress.setHidden(hideToggle.checked);
-  });
+  }
 });
